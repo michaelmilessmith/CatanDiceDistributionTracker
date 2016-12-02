@@ -1,7 +1,7 @@
 const Bar = React.createClass({
   render: function() {
   	// var bar = Array(this.props.count + 1).join("-");
-    const classes = `bar bar-${this.props.count}`
+    const classes = `bar bar-${Math.round((this.props.count * 100) / this.props.total)}`
     return (<div className={classes}><span className="bar-label">{this.props.count}</span></div>);
   }
 });
@@ -22,7 +22,7 @@ const NumberBox = React.createClass({
   render: function() {
     return <div>
       <Number  onClick={this.handleClick} number={this.props.object.number} />
-      < Bar count={this.props.object.count} />
+      < Bar count={this.props.object.count} total={this.props.total} />
     </div>;
   }
 });
@@ -43,7 +43,7 @@ const Chart = React.createClass({
     console.log(totalCount);
     return (
       <div>
-      	{this.state.numbers.map( object => <NumberBox object={object} onClick={this.handlePlus}/> )}
+      	{this.state.numbers.map( object => <NumberBox object={object} onClick={this.handlePlus} total={totalCount}/> )}
         </div>);
   }
 });
