@@ -1,4 +1,6 @@
-import React from 'react';
+"use strict"
+
+import React from "react";
 
 const Bar = ({ count = 0, highest = 0 }) => (
   <div className={`bar bar-${Math.round((count * 100) / highest)}`}>
@@ -6,4 +8,4 @@ const Bar = ({ count = 0, highest = 0 }) => (
   </div>
 );
 
-export {Bar as default}
+export { Bar as default }
