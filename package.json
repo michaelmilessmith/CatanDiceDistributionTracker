@@ -1,0 +1,47 @@
+{
+  "name": "catan-dice-distribution-tracker",
+  "version": "1.0.0",
+  "description": "A react web app to track the distribution of dice roll results in a game of Catan",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -w test/helpers/browser.js test/*.spec.js",
+    "dev:hot": "webpack-dev-server --hot --inline --progress --colors --watch --display-error-details --display-cached --content-base ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelmilessmith/catan-dice-distribution-tracker.git"
+  },
+  "author": "Michael Smith <michaelmilessmith@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelmilessmith/catan-dice-distribution-tracker/issues"
+  },
+  "homepage": "https://github.com/michaelmilessmith/catan-dice-distribution-tracker#readme",
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-airbnb": "^2.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "jquery": "^3.1.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "clean-webpack-plugin": "^0.1.14",
+    "enzyme": "^2.7.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "jsdom": "^9.9.1",
+    "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.4.2",
+    "redux": "^3.6.0",
+    "sinon": "^1.17.7",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
