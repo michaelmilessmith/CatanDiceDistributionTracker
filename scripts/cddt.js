@@ -1,32 +1,33 @@
-var Bar = React.createClass({
+const Bar = React.createClass({
   render: function() {
-  	var bar = Array(this.props.count + 1).join("-");
-    return (<td>{bar}[{this.props.count}]</td> );
+  	// var bar = Array(this.props.count + 1).join("-");
+    const classes = `bar bar-${Math.round((this.props.count * 100) / this.props.highest)}`
+    return (<div className={classes}><span className="bar-label">{this.props.count}</span></div>);
   }
 });
 
-var Number = React.createClass({
+const Number = React.createClass({
   handleClick: function() {
     this.props.onClick();
   },
   render: function() {
-    return <td onClick={this.handleClick}>{this.props.number}</td>;
+    return <div onClick={this.handleClick}>{this.props.number}</div>;
   }
 });
 
-var NumberBox = React.createClass({
+const NumberBox = React.createClass({
 	  handleClick: function() {
     this.props.onClick(this.props.object.number);
   },
   render: function() {
-    return <tr>
+    return <div>
       <Number  onClick={this.handleClick} number={this.props.object.number} />
-      < Bar count={this.props.object.count}/>
-    </tr>;
+      < Bar count={this.props.object.count} total={this.props.total} highest={this.props.highest} />
+    </div>;
   }
 });
 
-var Chart = React.createClass({
+const Chart = React.createClass({
         getInitialState: function() {
           return {
             numbers: this.props.numbers
@@ -38,16 +39,17 @@ var Chart = React.createClass({
         this.setState({numbers: numbers});
 },
   render: function() {
+    const totalCount = this.state.numbers.reduce((a, b) => a + b.count, 0);
+    const highestCount = this.state.numbers.reduce((a, b) => a > b.count ? a : b.count, 0);
+    console.log(totalCount);
     return (
-    	<table>
-      <tbody>
-      	{this.state.numbers.map( object => <NumberBox object={object} onClick={this.handlePlus}/> )}
-        </tbody>
-      </table>);
+      <div>
+      	{this.state.numbers.map( object => <NumberBox object={object} onClick={this.handlePlus} total={totalCount} highest={highestCount}/> )}
+        </div>);
   }
 });
 
-var numbers = [
+const numbers = [
 { "number": 2, "count": 0 },
 { "number": 3, "count": 0 },
 { "number": 4, "count": 0 },

@@ -1,0 +1,19 @@
+.bar-label{
+}
+.bar{
+  background: red;
+  height: 3em;
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+}
+
+@mixin bar-x-list {
+  @for $i from 0 through 100 {
+    .bar-#{$i}{
+      width: ($i/100) * 80%;
+    }
+  }
+}
+
+@include bar-x-list;
