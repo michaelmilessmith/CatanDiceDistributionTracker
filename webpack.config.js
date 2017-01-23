@@ -20,7 +20,7 @@ module.exports = {
 		'react/lib/ExecutionEnvironment': true,
 		'react/lib/ReactContext': true,
 	  },
-    plugins: []],
+    plugins: [],
     module: {
       loaders: [
         {
